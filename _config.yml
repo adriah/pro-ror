@@ -11,5 +11,7 @@ author: "Anders Helle"
 twitter_username:
 github_username:
 
+google_analytic: 
+
 # Build settings
 markdown: kramdown
