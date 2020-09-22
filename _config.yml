@@ -5,13 +5,14 @@ email: "post@pro-ror.no"
 description: > # this means to ignore newlines until "baseurl:"
     "Prø-Rør Bømlo er din lokale rørlegger. Pro-Rør Bømlo setter kort responstid, fleksibilitet, personlig service og langvarige kundeforhold i høysetet. Målet er å alltid gjøre en så god jobb at vi blir din personlige rørlegger i årene som kommer."
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "pro-ror.no" # the base hostname & protocol for your site
+url: "https://pro-ror.no" # the base hostname & protocol for your site
 author: "Anders Helle"
+
+plugins:
+  - jekyll-sitemap
 
 twitter_username:
 github_username:
-
-google_analytic: 
 
 # Build settings
 markdown: kramdown
