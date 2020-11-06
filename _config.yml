@@ -1,9 +1,9 @@
 # Site settings
-title: "Pro-Rør Bømlo"
+title: "Pro-Rør Bømlo - Rørleggere på Bømlo"
 email: "post@pro-ror.no"
 # ander.helle@pro-ror.no
 description: > # this means to ignore newlines until "baseurl:"
-    "Pro-Rør Bømlo er din lokale rørlegger. Pro-Rør Bømlo setter kort responstid, fleksibilitet, personlig service og langvarige kundeforhold i høysetet. Målet er å alltid gjøre en så god jobb at vi blir din personlige rørlegger i årene som kommer."
+    "Prø-Rør Bømlo er din lokale rørlegger på Bømlo. Vi setter kort responstid, fleksibilitet, personlig service og kundeforhold i høysetet. Rørleggeren du stoler på!"
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "https://pro-ror.no" # the base hostname & protocol for your site
 author: "Anders Helle"
