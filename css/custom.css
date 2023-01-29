@@ -1,20 +1,9 @@
-header {
-  position: absolute !important;
-  width: 100%;
-  transition: all 0.5s;
-}
-
 .top-bar {
   padding: 15px;
   color: #fff;
 }
 .navbar {
   transition: 0.3s all;
-}
-header {
-  position: absolute !important;
-  width: 100%;
-  transition: all 0.5s;
 }
 
 .top-bar {
