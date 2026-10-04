@@ -49,7 +49,7 @@ function SiteHeader() {
         <nav className={menuOpen ? "site-nav is-open" : "site-nav"} id="site-navigation" aria-label="Hovudmeny">
           {[["Tenester", "services"], ["Om oss", "about"], ["Arbeidet vårt", "portfolio"], ["Kontakt oss", "contact"]].map(([label, id]) => <a key={id} className={id === "contact" ? "nav-contact" : undefined} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}</a>)}
         </nav>
-        <a className="nav-phone" href={phone}><Icon name="phone" /><span>40 40 36 81</span><span className="phone-availability">24/7</span></a>
+        <a className="nav-phone" href={phone}><Icon name="phone" /><span>40 40 36 81</span></a>
         <button className="menu-toggle" type="button" aria-label={menuOpen ? "Lukk meny" : "Opne meny"} aria-expanded={menuOpen} aria-controls="site-navigation" onClick={() => setMenuOpen(!menuOpen)}><Icon name={menuOpen ? "close" : "menu"} /></button>
       </div>
     </header>
@@ -63,23 +63,23 @@ function HeroActions() {
 function Hero() {
   return <>
     <section className="hero hero-signature wrap" data-hero="signature" aria-label="Velkomen til Helle AS">
-      <div className="signature-kicker"><span className="eyebrow">DIN LOKALE RØYRLEGGJAR</span><span className="location-tag"><Icon name="pin" /> Bømlo, Noreg</span></div>
+      <div className="signature-kicker"><span className="eyebrow">RØYRLEGGJAR PÅ BØMLO</span><span className="location-tag"><Icon name="pin" /> Bømlo, Noreg</span></div>
       <div className="signature-title"><h1>Vatn. Varme.<br /><span>Skikkeleg</span> handverk.</h1><div className="signature-stamp"><Icon name="drop" /><span>HEILT HELLE.<br />HEILT HEIME.</span></div></div>
-      <div className="signature-bottom"><div className="signature-image"><img src="/img/portfolio/5.jpg" width="2081" height="2081" alt="Dusj og detaljar på badet" fetchPriority="high" /><span>Gode kvardagar byrjar heime.</span></div><div className="signature-intro"><p>Små drypp eller store draumar?<br />Me tek oss av det. Med stoltheit i faget og begge beina på Bømlo.</p><HeroActions /><div className="mini-trust"><Icon name="check" /> Meisterkompetanse <span>·</span> Service 24/7</div></div></div>
+      <div className="signature-bottom"><div className="signature-image"><img src="/img/portfolio/5.jpg" width="2081" height="2081" alt="Dusj og detaljar på badet" fetchPriority="high" /><span>Gode kvardagar byrjar heime.</span></div><div className="signature-intro"><p>Små drypp eller store draumar?<br />Helle AS er din lokale røyrleggjar på Bømlo. Me hjelper deg med bad, vatn og varme — med stoltheit i faget.</p><HeroActions /><div className="mini-trust"><Icon name="check" /> Meisterkompetanse <span>·</span> Personleg oppfølging</div></div></div>
     </section>
-    <div className="trust-strip"><div className="wrap"><span><Icon name="check" /> Røyrleggjarmeister</span><span><Icon name="pin" /> Lokalt på Bømlo</span><span><Icon name="clock" /> Tilgjengeleg 24/7</span><span><Icon name="tool" /> Små og store oppdrag</span></div></div>
+    <div className="trust-strip"><div className="wrap"><span><Icon name="check" /> Røyrleggjarmeister</span><span><Icon name="pin" /> Lokalt på Bømlo</span><span><Icon name="check" /> Personleg oppfølging</span><span><Icon name="tool" /> Små og store oppdrag</span></div></div>
   </>;
 }
 
 const services = [
-  { number: "01", icon: "bath", name: "Bad & velvære", text: "Eit rom å trivast i. Me hjelper med dusj, toalett, møblar og alle dei viktige detaljane.", subject: "Eg vil snakka om bad" },
-  { number: "02", icon: "drop", name: "Kjøkken & vatn", text: "Frå eit nytt blandebatteri til trygge vassinstallasjonar. Gode løysingar for kvardagen.", subject: "Eg vil snakka om kjøkken og vatn" },
+  { number: "01", icon: "bath", name: "Bad & velvære", text: "Skal du pussa opp badet? Me hjelper med dusj, toalett, baderomsmøblar og røyrinstallasjonar.", subject: "Eg vil snakka om bad" },
+  { number: "02", icon: "drop", name: "Kjøkken & vatn", text: "Frå eit nytt blandebatteri på kjøkkenet til trygge vassinstallasjonar. Me hjelper òg ved lekkasje og tett avløp.", subject: "Eg vil snakka om kjøkken og vatn" },
   { number: "03", icon: "heat", name: "Varme & inneklima", text: "Varmepumper, vassboren golvvarme og ventilasjon. Rett temperatur, heile året.", subject: "Eg vil snakka om varme og inneklima" },
-  { number: "04", icon: "home", name: "Nybygg & oppussing", text: "Ein god samarbeidspartnar frå planlegging til ferdig bygg. Me ser heilskapen.", subject: "Eg vil snakka om nybygg eller oppussing" },
+  { number: "04", icon: "home", name: "Nybygg & oppussing", text: "Røyrleggjararbeid i nybygg og ved oppussing. Me er med frå planlegging til ferdige VVS-installasjonar.", subject: "Eg vil snakka om nybygg eller oppussing" },
 ];
 
 function Services() {
-  return <section className="services-section section-space" id="services"><div className="wrap"><div className="section-heading"><div><p className="eyebrow">01 / DETTE KAN ME</p><h2>Frå små drypp<br />til store planar.</h2></div><p>Ein god heim treng løysingar som fungerer.<br />Me tek hand om det som ligg bak.</p></div><div className="service-grid">{services.map((service) => <a className="service-card" key={service.number} href="#contact"><div className="service-card-top"><Icon name={service.icon} /><span>{service.number}</span></div><h3>{service.name}</h3><p>{service.text}</p><span className="service-card-action">La oss ta ein prat <Icon name="diagonal" /></span></a>)}</div><div className="emergency-strip"><span className="emergency-icon"><Icon name="phone" /></span><div><strong>Vatn på avvegar?</strong><p>Lekkasje, tett avløp eller kaldt vatn? Me er tilgjengelege 24/7.</p></div><a href={phone}>Ring 40 40 36 81 <Icon name="diagonal" /></a></div></div></section>;
+  return <section className="services-section section-space" id="services"><div className="wrap"><div className="section-heading"><div><p className="eyebrow">01 / DETTE KAN ME</p><h2>Frå små drypp<br />til store planar.</h2></div><p>Røyrleggjartenester på Bømlo — frå bad og kjøkken til varmepumper, vassboren golvvarme og nybygg.</p></div><div className="service-grid">{services.map((service) => <a className="service-card" key={service.number} href="#contact"><div className="service-card-top"><Icon name={service.icon} /><span>{service.number}</span></div><h3>{service.name}</h3><p>{service.text}</p><span className="service-card-action">La oss ta ein prat <Icon name="diagonal" /></span></a>)}</div><div className="emergency-strip"><span className="emergency-icon"><Icon name="phone" /></span><div><strong>Vatn på avvegar?</strong><p>Lekkasje, tett avløp eller kaldt vatn? Ta kontakt, så finn me ei løysing.</p></div><a href={phone}>Ring 40 40 36 81 <Icon name="diagonal" /></a></div></div></section>;
 }
 
 function About() {
@@ -106,7 +106,7 @@ function Contact() {
   return <section className="contact-section section-space" id="contact"><div className="wrap contact-grid">
     <div className="contact-copy"><p className="eyebrow">LA OSS FINNA EI LØYSING</p>
       <div className="contact-top"><h2>Kva kan me<br /><em>hjelpa deg med?</em></h2><p>Små spørsmål eller store planar.<br />Me høyrer gjerne frå deg.</p></div>
-      <div className="contact-methods"><a href={phone}><span><Icon name="phone" /> HASTAR DET? RING OSS · 24/7</span><strong>40 40 36 81</strong><Icon name="diagonal" /></a><a href={email}><span><Icon name="mail" /> DU KAN ÒG SENDA E-POST</span><strong>post@helleas.no</strong><Icon name="diagonal" /></a></div>
+      <div className="contact-methods"><a href={phone}><span><Icon name="phone" /> HASTAR DET? RING OSS</span><strong>40 40 36 81</strong><Icon name="diagonal" /></a><a href={email}><span><Icon name="mail" /> DU KAN ÒG SENDA E-POST</span><strong>post@helleas.no</strong><Icon name="diagonal" /></a></div>
     </div>
     <ContactForm />
   </div></section>;
