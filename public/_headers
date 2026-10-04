@@ -1,4 +1,10 @@
-/*
+/takk
+  X-Robots-Tag: noindex, nofollow
+/takk.html
+  X-Robots-Tag: noindex, nofollow
+/__forms
+  X-Robots-Tag: noindex, nofollow
+/__forms.html
   X-Robots-Tag: noindex, nofollow
 
 /_next/static/*

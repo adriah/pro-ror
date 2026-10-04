@@ -27,12 +27,18 @@ for (const width of [1440, 768, 390, 320]) {
   });
 }
 
-test("client preview stays on Signatur despite old preferences and links", async ({ page }) => {
+test("production stays on Signatur despite old preferences and links", async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem("helle-concept", "copper"));
   await page.goto("/?concept=nordic");
   await expect(page.locator("html")).toHaveAttribute("data-concept", "signature");
   await expect(page.locator(".concept-bar")).toHaveCount(0);
-  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "noindex, nofollow");
+  await expect(page.locator('meta[name="robots"]')).toHaveAttribute("content", "index, follow");
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", /^https:\/\/helleas\.no\/?$/);
+  const robots = await page.request.get("/robots.txt");
+  expect(await robots.text()).toContain("Sitemap: https://helleas.no/sitemap.xml");
+  expect(await robots.text()).not.toMatch(/Disallow: \/\s*$/m);
+  const sitemap = await page.request.get("/sitemap.xml");
+  expect(await sitemap.text()).toContain("<loc>https://helleas.no/</loc>");
 });
 
 test("mobile navigation opens, navigates, and closes with Escape", async ({ page }) => {

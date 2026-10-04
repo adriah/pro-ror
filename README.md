@@ -26,13 +26,13 @@ Run either the development server or the preview server, not both on port 3000.
 
 Signatur is the selected design. The concept switcher is removed, and old concept URLs or saved preferences cannot change the design. The original drop-and-wrench symbol sits beside the lowercase **helle.** wordmark in the header and footer. `public/img/helle-drop.svg` reuses the original logo's vector artwork, with the original brand purple, `#663675`. The full original logo remains in `public/img/orig_logo.png`.
 
-The client preview is live at **https://ny.helleas.no** on Netlify, separate from the existing site at helleas.no. Preview pages have `noindex, nofollow` metadata, robots.txt disallows crawling, and Netlify adds an `X-Robots-Tag` header. Remove these preview restrictions and update the metadata/sitemap URLs when moving to the main domain.
+Production uses **https://helleas.no** on the existing Netlify project `astounding-cajeta-611825` (ID `dbc70407-b0a0-41f7-a7c9-e3dc9c49a26d`). Its Git connection deploys `master`, the repository default branch, using `npm run build`, publishing `out/`, and Node 22. The home page permits search indexing and uses the production canonical URL and sitemap. The thank-you page and hidden form declaration remain excluded from indexing. The separate client preview at **https://ny.helleas.no** retains its previously deployed preview restrictions.
 
 ## Free hosting and contact form
 
 The recommended host is the existing **Netlify Free Legacy** team `adriah`: 100 GB/month bandwidth, 300 build minutes/month, and 100 form submissions per site/month. Keep the legacy plan; switching to a credit-based plan is irreversible. Cloudflare remains the DNS provider. Existing Microsoft 365 MX/SPF records should not change.
 
-The static preview uses Netlify project `majestic-valkyrie-24d57f` (ID `c3ddf53e-f611-4f09-946a-44af2f99c634`), also accessible at **https://majestic-valkyrie-24d57f.netlify.app**. Cloudflare's DNS-only CNAME for `ny` now points to that Netlify hostname, and HTTPS was verified on 4 October 2026. The public "Powered by Netlify" badge is disabled. The original production project remains `astounding-cajeta-611825` (`helleas.no`). The previous Vercel preview project is `helle-client-preview` in `helle-consulting`.
+The static preview uses Netlify project `majestic-valkyrie-24d57f` (ID `c3ddf53e-f611-4f09-946a-44af2f99c634`), also accessible at **https://majestic-valkyrie-24d57f.netlify.app**. Cloudflare's DNS-only CNAME for `ny` now points to that Netlify hostname, and HTTPS was verified on 4 October 2026. The public "Powered by Netlify" badge is disabled. The existing production project `astounding-cajeta-611825` keeps the `helleas.no` domain; no domain transfer or DNS change is needed for the migration. The previous Vercel preview project is `helle-client-preview` in `helle-consulting`.
 
 ```sh
 npm ci
@@ -41,13 +41,13 @@ npm run typecheck
 npm run test:e2e
 ```
 
-Deploy the **contents of `out/`** through Netlify Drop or the Netlify CLI. `netlify.toml` also supports future Git builds using Node 22, with the Next.js server adapter disabled because this is a static export. `_headers` and `_redirects` are bundled in the output, including preview noindex headers and redirects from the removed `/hire` and `/hire.html` pages to the contact section.
+Deploy the **contents of `out/`** through Netlify Drop or the Netlify CLI. `netlify.toml` also supports future Git builds using Node 22, with the Next.js server adapter disabled because this is a static export. `_headers` and `_redirects` are bundled in the output, including noindex headers for form utility pages and redirects from the removed `/hire` and `/hire.html` pages to the contact section.
 
 Enable **Forms → Enable form detection**, then deploy again. `public/__forms.html` declares the form for Netlify's deploy scanner. The visible form sends URL-encoded POSTs to `/__forms.html`; without JavaScript, it uses a native POST and the `/takk.html` thank-you page. The form has a honeypot and uses Netlify's built-in spam filtering. Network errors retain the visitor's message and display telephone/email alternatives. No browser API keys or client mailbox credentials are needed.
 
 The preview has an **Email notification** for `kontakt` to **adrian@helle.me** for testing, as requested. Before the client launch, change **Forms → Submission notifications** to **post@helleas.no**. The subject is “Ny førespurnad frå helleas.no”. The field named `email` makes Netlify set Reply-To to the visitor, so Anders can reply normally. On 4 October 2026, a live Safari submission was saved as a verified entry and Adrian confirmed receiving its notification email. Notifications come from `formresponses@netlify.com`; check spam/quarantine if a notification is missing. Local tests mock Netlify responses and cannot prove inbox delivery. A plain local static server or Vercel static deployment cannot process the form.
 
-Before launching on the main domain, change the metadata/sitemap URLs and remove preview noindex restrictions in `app/layout.tsx`, `app/robots.ts`, and `public/_headers`. Keep the thank-you page and hidden form declaration out of search results. Verify submissions on the production Netlify project and configure its own notification (settings belong to the project).
+Production metadata, sitemap, and indexing rules are configured in `app/layout.tsx`, `app/sitemap.ts`, `app/robots.ts`, and `public/_headers`. Netlify form detection and submission notifications are project-specific; configure `kontakt` notifications to `post@helleas.no` on the production project. Local tests mock submissions and do not verify inbox delivery.
 
 ## Previous Vercel deployment
 

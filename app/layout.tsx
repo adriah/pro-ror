@@ -4,8 +4,9 @@ import "@fontsource-variable/manrope";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ny.helleas.no"),
-  robots: { index: false, follow: false },
+  metadataBase: new URL("https://helleas.no"),
+  alternates: { canonical: "https://helleas.no/" },
+  robots: { index: true, follow: true },
   title: { default: "Helle AS — Tryggleik i vatn. På Bømlo.", template: "%s | Helle AS" },
   description: "Din lokale røyrleggjar på Bømlo. Me hjelper deg med vatn, varme og bad — med meisterkompetanse, omtanke og service 24/7.",
   icons: { icon: "/img/favicon-32x32.png", apple: "/img/apple-touch-icon.png" },
