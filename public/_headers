@@ -1,0 +1,11 @@
+/takk
+  X-Robots-Tag: noindex, nofollow
+/takk.html
+  X-Robots-Tag: noindex, nofollow
+/__forms
+  X-Robots-Tag: noindex, nofollow
+/__forms.html
+  X-Robots-Tag: noindex, nofollow
+
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable

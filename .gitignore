@@ -1,2 +1,13 @@
-_site/
-.sass-cache/
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+playwright-report/
+test-results/
+.DS_Store
+.vercel/
+.env*.local
+.vercel
+.env*
+
+.netlify/
