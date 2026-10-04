@@ -24,7 +24,7 @@ Run either the development server or the preview server, not both on port 3000.
 
 ## Design and client preview
 
-Signatur is the selected design. The concept switcher is removed, and old concept URLs or saved preferences cannot change the design. The original drop-and-wrench symbol sits beside the lowercase **helle.** wordmark in the header and footer. `public/img/helle-drop.svg` reuses the existing vector artwork from `safari-pinned-tab.svg`, with the original brand purple, `#663675`. The full original logo remains in `public/img/orig_logo.png`.
+Signatur is the selected design. The concept switcher is removed, and old concept URLs or saved preferences cannot change the design. The original drop-and-wrench symbol sits beside the lowercase **helle.** wordmark in the header and footer. `public/img/helle-drop.svg` reuses the original logo's vector artwork, with the original brand purple, `#663675`. The full original logo remains in `public/img/orig_logo.png`.
 
 The client preview is live at **https://ny.helleas.no** on Netlify, separate from the existing site at helleas.no. Preview pages have `noindex, nofollow` metadata, robots.txt disallows crawling, and Netlify adds an `X-Robots-Tag` header. Remove these preview restrictions and update the metadata/sitemap URLs when moving to the main domain.
 
@@ -74,7 +74,7 @@ Recruitment content is removed. The primary contact buttons and service cards le
 - `tests/contact.spec.ts`: form validation, submission, pending/error/success states, retry, and deploy registration checks.
 - `out/`: generated static site after `npm run build` (ignored by Git).
 
-Fonts are bundled locally through Fontsource. No analytics or advertising scripts are loaded by the new site. The original Jekyll source files remain in the repository for reference; Next.js does not use them. The new preview is separate from the original production deployment.
+Fonts are bundled locally through Fontsource. No analytics or advertising scripts are loaded by the new site. The old Jekyll source, duplicate assets, and unused libraries have been removed; they remain available in Git history. `public/img/` contains the photos, logo, and icons used by the new site. `AGENTS.md` and `CLAUDE.md` retain instructions for AI-assisted development. The new preview is separate from the original production deployment.
 
 ## Checks
 
