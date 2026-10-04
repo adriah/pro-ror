@@ -29,8 +29,8 @@ function Icon({ name, className = "" }: { name: string; className?: string }) {
   return <svg className={`icon ${className}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name] || paths.arrow}</svg>;
 }
 
-function Brand() {
-  return <span className="brand" aria-hidden="true"><img className="brand-logo" src="/img/helle-drop.svg" alt="" width="1240" height="1799" /><span className="brand-wordmark">helle<span>.</span></span></span>;
+function Brand({ companySuffix = false }: { companySuffix?: boolean }) {
+  return <span className="brand" aria-hidden="true"><img className="brand-logo" src="/img/helle-drop.svg" alt="" width="1240" height="1799" /><span className="brand-wordmark">helle{companySuffix ? " as" : ""}<span>.</span></span></span>;
 }
 
 function SiteHeader() {
@@ -45,7 +45,7 @@ function SiteHeader() {
     <a className="skip-link" href="#main">Hopp til innhald</a>
     <header className="site-header">
       <div className="nav-inner wrap">
-        <a href="/" aria-label="Helle AS — heim"><Brand /></a>
+        <a href="/" aria-label="Helle AS — heim"><Brand companySuffix /></a>
         <nav className={menuOpen ? "site-nav is-open" : "site-nav"} id="site-navigation" aria-label="Hovudmeny">
           {[["Tenester", "services"], ["Om oss", "about"], ["Arbeidet vårt", "portfolio"], ["Kontakt oss", "contact"]].map(([label, id]) => <a key={id} className={id === "contact" ? "nav-contact" : undefined} href={`#${id}`} onClick={() => setMenuOpen(false)}>{label}</a>)}
         </nav>
